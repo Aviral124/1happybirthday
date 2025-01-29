@@ -59,12 +59,12 @@
                 <span>:)</span>
             </p>
            <p class="idea-6">
-    <span style="color: red;">A</span> 
-    <span style="color: red;">N</span> 
-    <span style="color: red;">S</span> 
-    <span style="color: red;">I</span> 
-    <span style="color: red;">K</span> 
-    <span style="color: red;">A</span> 
+    <span class="heart">A</span>
+    <span class="heart">N</span>
+    <span class="heart">S</span>
+    <span class="heart">I</span>
+    <span class="heart">K</span>
+    <span class="heart">A</span>
 </p>
 
 <style>
@@ -73,12 +73,43 @@
         justify-content: space-evenly;
         align-items: center;
     }
-    .idea-6 span {
-        font-size: 30px; /* Adjust the font size */
-        font-weight: bold;
+
+    .heart {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        clip-path: polygon(50% 0%, 0% 35%, 50% 100%, 100% 35%);
         position: relative;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        line-height: 50px; /* Center the letter vertically */
+        margin: 5px;
+    }
+
+    .heart:before,
+    .heart:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    .heart:before {
+        left: -25px;
+    }
+
+    .heart:after {
+        right: -25px;
     }
 </style>
+
+
 
         </div>
 
