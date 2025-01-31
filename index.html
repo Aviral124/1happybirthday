@@ -139,6 +139,83 @@
 
 
         </div>
+      
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 0% 35%, 50% 100%, 100% 35%);
+            animation: float 5s ease-in-out infinite, fade 5s forwards;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            left: -10px;
+        }
+
+        .heart:after {
+            right: -10px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+            }
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 3 + 2}s`;  // Random duration between 2s and 5s
+            heart.style.animationDelay = `${Math.random() * 2}s`;  // Random delay before it starts
+
+            document.body.appendChild(heart);
+
+            // Remove heart after animation is complete
+            setTimeout(() => {
+                heart.remove();
+            }, 5000); // Match the duration of the animation
+        }
+
+        // Create 300 hearts
+        for (let i = 0; i < 300; i++) {
+            setTimeout(createHeart, i * 50); // Delay each heart creation slightly
+        }
+
 
         <div class="six">
             <img src="./img/irene.jpg" alt="profile" class="profile-picture" id="imagePath"/>
