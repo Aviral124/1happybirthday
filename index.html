@@ -14,16 +14,35 @@
   <!-- My Style -->
   <link rel="stylesheet" href="./style/main.css" />
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Change</title>
     <style>
-    /* Change background color here */
-    body {
-      background-color: #F6C4F1; /* Light pink background */
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
+        body {
+            background-color: #000; /* Start with a dark color */
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 1s ease-in-out; /* Smooth transition */
+        }
+    </style>
 </head>
 
 <body>
+
+  <script>
+    // Array of light colors
+    const lightColors = ["#F6C4F1", "#D4F1F4", "#FFECB3", "#C8E6C9", "#FFF3E0", "#E1BEE7", "#FFCDD2"];
+
+    let index = 0;
+
+    setTimeout(() => {
+        setInterval(() => {
+            document.body.style.backgroundColor = lightColors[index]; // Apply color
+            index = (index + 1) % lightColors.length; // Loop through colors
+        }, 5000); // Change color every 5 seconds
+    }, 5000); // Initial 5-second delay before the cycle starts
+
+</script>
+
 
     <audio class="song" loop autoplay>
         <source src="./music/hbd.mp3">
